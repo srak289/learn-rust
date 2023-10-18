@@ -1,0 +1,39 @@
+quiz:
+  name: The Big One
+  questions:
+    - id: 1
+      question: What is up
+      answer: the sky
+      points: 1.5
+    - id: 2
+      question: Pizza or beer
+      answer: both
+      points: 1.5
+    - id: 3
+      question: Who shot JFK
+      answer: the lizard people
+      points: 1.5
+    - id: 4
+      question: Why do dogs bite
+      answer: because they suck
+      points: 1.5
+    - id: 5
+      question: Football
+      answer: nah
+      points: 2
+    - id: 6
+      question: Linux distro
+      answer: debian
+      points: 2
+    - id: 7
+      question: Chocolate milk
+      answer: chalkey
+      points: 1.5
+    - id: 8
+      question: Doughnuts
+      answer: do not
+      points: 1.5
+    - id: 9
+      question: Which Pope
+      answer: Pope John Paul III
+      points: 2.5
