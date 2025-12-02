@@ -1,0 +1,42 @@
+fn pow(x: u64, e: u64) -> u64 {
+    if e > 1 {
+        return x * pow(x, e-1);
+    }
+    return x;
+}
+
+fn prime_iter() -> impl Iterator<Item = u64> {
+    let mut primes: Vec<u64> = Vec::new();
+    let mut n: u64 = 2;
+    std::iter::from_fn(move || {
+        while !primes.iter().all(|p| n % p != 0) {
+            //println!("{n} is not prime");
+            n += 1;
+        }
+        println!("Found prime {n}!");
+        primes.push(n);
+        let p = n;
+        n += 1;
+        Some(p)
+    })
+}
+
+fn main() {
+    //Find the Fifth root of the sum of the squares of the first 100 ODD numbers only.
+    let mut sum: u64 = (1..=100).map(|x| if x % 2 == 1 { pow(x, 2) } else { 0 }).sum();
+    println!("Calculated sum of squares of first 100 odd numbers: {sum}");
+    let mut factor: Vec<u64> = Vec::new();
+    let mut pi = prime_iter();
+    let mut p = pi.next().expect("No primes");
+    while sum > 1 {
+        if sum % p == 0 {
+            factor.push(p);
+            println!("Pushed factor {p}");
+            sum /= p;
+            println!("{sum} remaining");
+        } else {
+            p = pi.next().expect("No primes");
+        }
+    }
+    println!("Found factors {:?}", factor);
+}
